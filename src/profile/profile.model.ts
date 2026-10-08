@@ -1,4 +1,5 @@
 import { Field, ObjectType } from '@nestjs/graphql';
+import { Skill } from './skill.model.js';
 
 @ObjectType()
 export class Profile {
@@ -10,4 +11,7 @@ export class Profile {
 
   @Field()
   githubUrl: string;
+
+  @Field(() => [Skill])
+  skills: Skill[];
 }

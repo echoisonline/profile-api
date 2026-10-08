@@ -1,0 +1,22 @@
+generator client {
+  provider = "prisma-client"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model Profile {
+  id           String  @id
+  name         String
+  description  String
+  githubUrl    String
+  skills Skill[]
+}
+model Skill {
+  id String @id
+  name String
+  profileId String
+  profile Profile @relation(fields: [profileId], references: [id])
+}

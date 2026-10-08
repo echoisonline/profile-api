@@ -1,13 +1,17 @@
 import { Injectable } from '@nestjs/common';
 import { Profile } from './profile.model.js';
+import { PrismaService } from '../prisma/prisma.service.js';
 
 @Injectable()
 export class ProfileService {
-  getProfile(): Profile {
-    return {
-      name: 'Никита Нестеренко',
-      description: 'Fullstack-разработчик',
-      githubUrl: 'https://github.com/echoisonline',
-    };
+  constructor(private readonly prisma: PrismaService) {}
+  async getProfile(): Promise<Profile> {
+    const result = await this.prisma.profile.findUniqueOrThrow({
+      where: {
+        id: 'me',
+      },
+      include: { skills: true },
+    });
+    return result;
   }
 }
