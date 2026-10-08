@@ -10,7 +10,7 @@ export class ProfileService {
       where: {
         id: 'me',
       },
-      include: { skills: true },
+      include: { skills: true, experience: true, projects: true },
     });
     return result;
   }

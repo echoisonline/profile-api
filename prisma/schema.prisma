@@ -12,11 +12,22 @@ model Profile {
   name         String
   description  String
   githubUrl    String
-  skills Skill[]
+  skills       Skill[]
+  experience   Experience[]
 }
 model Skill {
   id String @id
   name String
+  profileId String
+  profile Profile @relation(fields: [profileId], references: [id])
+}
+
+model Experience {
+  id String @id
+  company String
+  position String
+  period String
+  achievements String
   profileId String
   profile Profile @relation(fields: [profileId], references: [id])
 }
