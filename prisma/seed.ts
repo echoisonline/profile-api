@@ -1,7 +1,7 @@
 import 'dotenv/config';
 import { PrismaClient } from '../src/generated/prisma/client.js';
 import { PrismaPg } from '@prisma/adapter-pg';
-import { experiences, profileData, skills } from './data.js';
+import { experiences, profileData, skills, projects } from './data.js';
 
 const url = process.env.DATABASE_URL;
 if (!url) throw new Error('DATABASE_URL is missing');
@@ -42,6 +42,21 @@ try {
         position: experience.position,
         period: experience.period,
         achievements: experience.achievements,
+      },
+    });
+  }
+
+  for (const project of projects) {
+    await prisma.projects.upsert({
+      where: { id: project.id },
+      create: {
+        ...project,
+        profileId: 'me',
+      },
+      update: {
+        name: project.name,
+        url: project.url,
+        description: project.description,
       },
     });
   }

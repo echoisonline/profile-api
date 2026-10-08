@@ -86,3 +86,13 @@ export const experiences = [
 — Поддерживал Webpack-сборку и развивал общую frontend-кодовую базу.`,
   },
 ];
+
+export const projects = [
+  {
+    id: 'profile-api',
+    name: 'Profile API',
+    url: 'https://github.com/echoisonline/profile-api',
+    description:
+      'Цифровая визитка с GraphQL API на TypeScript, NestJS, Prisma, PostgreSQL.',
+  },
+];
