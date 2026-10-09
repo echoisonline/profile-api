@@ -3,6 +3,6 @@ import { Injectable } from '@nestjs/common';
 @Injectable()
 export class AppService {
   getHello(): string {
-    return 'Profile API';
+    return 'Apollo Sandbox runnig on /graphql';
   }
 }
