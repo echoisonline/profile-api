@@ -40,7 +40,8 @@ try {
       update: {
         company: experience.company,
         position: experience.position,
-        period: experience.period,
+        startedAt: experience.startedAt,
+        endedAt: experience.endedAt,
         achievements: experience.achievements,
       },
     });

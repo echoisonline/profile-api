@@ -7,7 +7,7 @@ export class ProfileResolver {
   constructor(private readonly profileService: ProfileService) {}
 
   @Query(() => Profile, { name: 'profile' })
-  profile(): Promise<Profile> {
+  profile() {
     return this.profileService.getProfile();
   }
 }

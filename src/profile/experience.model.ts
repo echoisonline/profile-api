@@ -9,8 +9,5 @@ export class Experience {
   position: string;
 
   @Field()
-  period: string;
-
-  @Field()
   achievements: string;
 }

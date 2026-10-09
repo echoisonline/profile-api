@@ -27,7 +27,8 @@ model Experience {
   id String @id
   company String
   position String
-  period String
+  startedAt DateTime @db.Date
+  endedAt DateTime? @db.Date
   achievements String
   profileId String
   profile Profile @relation(fields: [profileId], references: [id])
