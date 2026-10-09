@@ -9,6 +9,21 @@ services:
       - '5433:5432'
     volumes:
       - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ['CMD-SHELL', 'pg_isready -U profile -d profile']
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  app:
+    build: .
+    environment:
+      DATABASE_URL: postgresql://profile:profile@db:5432/profile
+    ports:
+      - '3000:3000'
+    depends_on:
+      db:
+        condition: service_healthy
 
 volumes:
   pgdata:
