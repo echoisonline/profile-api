@@ -2,6 +2,8 @@
 
 Цифровая GraphQL визитка с навыками, опытом и проектами на TypeScript и Node.js, NestJS, Apollo Server, Prisma, PostgreSQL и Docker.
 
+Публичная версия: [Apollo Sandbox](https://profile-api-production-a194.up.railway.app/graphql).
+
 ## Запуск
 
 Нужны Docker и Docker Compose. В папке проекта выполните:
